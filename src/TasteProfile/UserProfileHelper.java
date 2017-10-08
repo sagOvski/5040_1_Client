@@ -1,6 +1,7 @@
 package TasteProfile;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -73,5 +74,13 @@ abstract public class UserProfileHelper {
 			songs.add(new SongImpl(aSongEntry.getKey(), aSongEntry.getValue()));
 		}
 		return (Song[]) songs.toArray();
+	}
+
+	public static Map<String, Integer> getSongMapFromCorbaSongObjects(Song[] songs) {
+		Map<String, Integer> songMap = new HashMap<String, Integer>(songs.length);
+		for (int counter = 0; counter < songs.length; counter++) {
+			songMap.put(songs[counter].songId, songs[counter].playCount);
+		}
+		return songMap;
 	}
 }
