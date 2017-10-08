@@ -13,7 +13,7 @@ public class ProfilerClient {
 
 	static Profiler addobj = null;
 	final static String OUTPUT_FILE = new File(".").getAbsolutePath() + File.separator
-			+ "output_without_server_and_client_cache";
+			+ "output_with_server_cache_and_without_client_cache";
 
 	public static void getTasteProfiles(final String inputFilePath) throws IOException {
 		File inputFile = new File(inputFilePath);
@@ -61,8 +61,8 @@ public class ProfilerClient {
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 			addobj = (Profiler) ProfilerHelper.narrow(ncRef.resolve_str("ABC"));
 			System.out.println("Welcome to the Profiler system:");
-			getTasteProfiles(new File(".").getAbsolutePath() + File.separator + "input.txt");
-
+//			getTasteProfiles(new File(".").getAbsolutePath() + File.separator + "input.txt");
+			
 		} catch (Exception e) {
 			System.out.println("Hello Client exception: " + e);
 			e.printStackTrace();
